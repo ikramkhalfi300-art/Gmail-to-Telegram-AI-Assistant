@@ -1,0 +1,7 @@
+.env
+token.json
+gmail_token.json
+client_secrets.json
+email_assistant.db
+__pycache__/
+*.pyc
