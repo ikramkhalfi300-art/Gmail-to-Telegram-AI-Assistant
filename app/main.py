@@ -24,13 +24,20 @@ async def lifespan(app: FastAPI):
     # Shutdown
     stop_scheduler()
 
-
 app = FastAPI(
     title="AI Email Assistant",
-    description="Gmail + Claude + WhatsApp automation",
+    description="...",
     version="1.0.0",
     lifespan=lifespan
 )
+app.include_router(auth.router)
+app.include_router(webhooks.router)
+
+
+@app.get("/test")
+async def test_router():
+    return {"message": "Server is working and routes are registered!"}
+
 
 app.add_middleware(
     CORSMiddleware,
