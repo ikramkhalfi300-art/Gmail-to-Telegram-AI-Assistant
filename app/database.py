@@ -16,5 +16,10 @@ async def get_db():
         yield session
 
 async def init_db():
+
+    from app.models.user import User
+    from app.models.email import Email
+    from app.models.draft import Draft
+
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
