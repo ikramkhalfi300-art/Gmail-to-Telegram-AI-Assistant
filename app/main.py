@@ -30,8 +30,6 @@ app = FastAPI(
     version="1.0.0",
     lifespan=lifespan
 )
-app.include_router(auth.router)
-app.include_router(webhooks.router)
 
 
 @app.get("/test")
