@@ -17,25 +17,18 @@ settings = get_settings()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup
     await init_db()
     start_scheduler()
     yield
-    # Shutdown
     stop_scheduler()
+
 
 app = FastAPI(
     title="AI Email Assistant",
-    description="...",
+    description="Gmail + Claude + WhatsApp automation",
     version="1.0.0",
     lifespan=lifespan
 )
-
-
-@app.get("/test")
-async def test_router():
-    return {"message": "Server is working and routes are registered!"}
-
 
 app.add_middleware(
     CORSMiddleware,
