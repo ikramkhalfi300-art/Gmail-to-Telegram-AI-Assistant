@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import init_db
 from app.services.scheduler import start_scheduler, stop_scheduler
-from app.routers import webhooks, admin, health
+from app.routers import webhooks, admin, health, auth
 from app.config import get_settings
 
 logging.basicConfig(
@@ -42,3 +42,4 @@ app.add_middleware(
 app.include_router(health.router)
 app.include_router(webhooks.router)
 app.include_router(admin.router)
+app.include_router(auth.router)
