@@ -26,7 +26,7 @@ class Settings(BaseSettings):
     # Telegram
     telegram_bot_token: str
     telegram_webhook_url: str = ""
-    telegram_webhook_secret: str = "MySecretWebHook.123"
+    telegram_webhook_secret: str = "ikram-telegram-1998"
 
     # Anthropic
     anthropic_api_key: str = ""
